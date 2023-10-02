@@ -15,15 +15,15 @@ func TestServiec(t *testing.T) {
 	// result, err := service.SendCommand(Slave0, SetZeroMode, 0x02)
 	// result, err = service.SendCommand(Slave0, SetZero)
 
-	result, err := service.SendCommand(Slave0, RunMotor, 0x0F)
+	result, err := service.SendCommand(Slave_0, Command_RunMotor, 0x0F)
 
 	time.Sleep(time.Duration(2) * time.Second)
 
-	result, err = service.SendCommand(Slave0, StopMotor)
+	result, err = service.SendCommand(Slave_0, Command_StopMotor)
 
 	time.Sleep(time.Duration(2) * time.Second)
 
-	result, err = service.SendCommand(Slave0, RunMotorSteps, 0xBF, 0x00, 0x00, 0xFF, 0xFF)
+	result, err = service.SendCommand(Slave_0, Command_RunMotorSteps, 0xBF, 0x00, 0x00, 0xFF, 0xFF)
 
 	assert.Nil(t, err)
 	assert.False(t, result)

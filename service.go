@@ -69,7 +69,7 @@ func (s *Service) SendCommand(slave Slave, action Command, payload ...uint8) (bo
 		return false, errors.New("response was for another slave")
 	}
 
-	if action == RunMotorSteps && len(response) > 2 {
+	if action == Command_RunMotorSteps && len(response) > 2 {
 		//another response is expected
 		if response[2] == 0x01 {
 			response = <-s.responseChannel
